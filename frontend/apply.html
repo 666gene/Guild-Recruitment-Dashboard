@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Apply - Lowcalibre</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header><h1>Apply to Lowcalibre</h1></header>
+<main>
+<form id="apply-form" method="POST" action="/api/apply">
+<label>Battle-Tag: <input name="battletag" required></label><br>
+<label>Character Name: <input name="char_name" required></label><br>
+<label>Realm: <input name="realm" required></label><br>
+<label>Class/Spec: <input name="class_spec" required></label><br>
+<label>Desired Role: <select name="desired_role">
+<option>Tank</option><option>Healer</option><option>DPS</option>
+</select></label><br>
+<label>Notes: <textarea name="notes"></textarea></label><br>
+<button type="submit">Submit</button>
+</form>
+</main>
+<script>
+document.getElementById('apply-form').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const form = e.target;
+  const data = Object.fromEntries(new FormData(form));
+  const res = await fetch('/api/apply', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data)});
+  if(res.ok){ window.location='/success.html'; } else { alert('Error submitting'); }
+});
+</script>
+</body>
+</html>

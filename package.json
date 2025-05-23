@@ -1,0 +1,15 @@
+{
+  "name": "guild-recruitment-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node api/server.js",
+    "lint": "eslint \"**/*.js\" --ignore-pattern node_modules",
+    "test": "node scripts/test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
