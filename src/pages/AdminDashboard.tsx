@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { toast } from 'sonner';
 import ApplicantList from '../components/admin/ApplicantList';
 import ApplicantDetails from '../components/admin/ApplicantDetails';
 import DashboardStats from '../components/admin/DashboardStats';
 import { Applicant } from '../types';
-import axios from 'axios';
+import { mockApplicants } from '../data/mockData';
 
 const AdminDashboard = () => {
   const [applicants, setApplicants] = useState<Applicant[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { user, token } = useAuth();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchApplicants = async () => {
       setIsLoading(true);
       try {
-        const res = await axios.get('/api/applications', {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        setApplicants(res.data);
+        // This would be an API call in production
+        // Simulating API delay
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        setApplicants(mockApplicants);
       } catch (error) {
         console.error('Error fetching applicants:', error);
         toast.error('Failed to load applicant data');
@@ -34,10 +35,13 @@ const AdminDashboard = () => {
 
   const updateApplicantStatus = async (id: string, status: string, notes?: string) => {
     try {
-      const res = await axios.put(`/api/applications/${id}/status`, { status, officerNotes: notes }, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      setApplicants(applicants.map(app => app.id === id ? res.data : app));
+      // This would be an API call in production
+      setApplicants(applicants.map(app => 
+        app.id === id 
+          ? { ...app, status: status as any, officerNotes: notes || app.officerNotes } 
+          : app
+      ));
+      
       toast.success(`Applicant status updated to ${status}`);
       return true;
     } catch (error) {

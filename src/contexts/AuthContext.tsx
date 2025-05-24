@@ -1,15 +1,12 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { jwtDecode } from 'jwt-decode';
 import { User } from '../types';
-import axios from 'axios';
 
 interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean;
   isLoading: boolean;
-  token: string | null;
   login: (username: string, password: string) => Promise<boolean>;
-  register: (username: string, password: string) => Promise<boolean>;
   logout: () => void;
 }
 
@@ -30,29 +27,28 @@ interface AuthProviderProps {
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [token, setToken] = useState<string | null>(null);
 
   useEffect(() => {
     // Check for existing token on load
     const checkAuth = () => {
-      const stored = localStorage.getItem('auth_token');
-      if (stored) {
+      const token = localStorage.getItem('auth_token');
+      if (token) {
         try {
-          const decoded = jwtDecode<{ id: number; username: string; role: string; exp: number }>(stored);
+          // In a real app, we'd verify this token with the server
+          const decoded = jwtDecode<{ user: User }>(token);
+          
+          // Check if token is expired
           const currentTime = Date.now() / 1000;
           if (decoded.exp && decoded.exp < currentTime) {
             localStorage.removeItem('auth_token');
             setUser(null);
-            setToken(null);
           } else {
-            setUser({ id: String(decoded.id), username: decoded.username, role: decoded.role as any });
-            setToken(stored);
+            setUser(decoded.user);
           }
         } catch (error) {
           console.error('Invalid token:', error);
           localStorage.removeItem('auth_token');
           setUser(null);
-          setToken(null);
         }
       }
       setIsLoading(false);
@@ -62,39 +58,32 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   }, []);
 
   const login = async (username: string, password: string): Promise<boolean> => {
-    try {
-      const res = await axios.post('/api/login', { username, password });
-      const { token, user } = res.data;
-      localStorage.setItem('auth_token', token);
-      setToken(token);
-      setUser(user);
+    // This would normally be an API call
+    // For demo purposes, we'll mock it
+    if (username === 'admin' && password === 'lowcalibre') {
+      const mockUser: User = {
+        id: '1',
+        username: 'admin',
+        role: 'admin'
+      };
+      
+      // In a real app, this would come from your backend
+      const mockToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiMSIsInVzZXJuYW1lIjoiYWRtaW4iLCJyb2xlIjoiYWRtaW4ifSwiZXhwIjoxNzE2MjM5MDIyfQ.7L8TxNJFoU1AGLCJ2Yg9x01YpNv_FLkC9j7Q6iO5lJg';
+      
+      localStorage.setItem('auth_token', mockToken);
+      setUser(mockUser);
       return true;
-    } catch (err) {
-      return false;
     }
-  };
-
-  const register = async (username: string, password: string): Promise<boolean> => {
-    try {
-      const res = await axios.post('/api/register', { username, password });
-      const { token, user } = res.data;
-      localStorage.setItem('auth_token', token);
-      setToken(token);
-      setUser(user);
-      return true;
-    } catch (err) {
-      return false;
-    }
+    return false;
   };
 
   const logout = () => {
     localStorage.removeItem('auth_token');
     setUser(null);
-    setToken(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated: !!user, isLoading, token, login, register, logout }}>
+    <AuthContext.Provider value={{ user, isAuthenticated: !!user, isLoading, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
