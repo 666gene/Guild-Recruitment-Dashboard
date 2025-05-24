@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'LifeCraft';
+  src: url('https://wow-interface-fonts.s3.amazonaws.com/FRIZQT__.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-gray-200 font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-primary;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md transition-all duration-200 font-medium;
+  }
+  
+  .btn-primary {
+    @apply bg-primary text-background-light hover:bg-primary-hover shadow-wow;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border border-primary text-primary hover:bg-primary/10;
+  }
+
+  .card {
+    @apply bg-background-light rounded-lg border border-primary/30 shadow-wow p-6;
+  }
+
+  .input {
+    @apply bg-background border border-primary/30 rounded-md px-4 py-2 text-gray-200
+    focus:outline-none focus:ring-2 focus:ring-primary/50;
+  }
+
+  .select {
+    @apply bg-background border border-primary/30 rounded-md px-4 py-2 text-gray-200 
+    focus:outline-none focus:ring-2 focus:ring-primary/50;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .progress-bar {
+    @apply h-2 bg-background rounded-full overflow-hidden;
+  }
+  
+  .progress-bar-fill {
+    @apply h-full transition-all duration-300;
+  }
+}
