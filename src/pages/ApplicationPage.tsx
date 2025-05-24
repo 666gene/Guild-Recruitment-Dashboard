@@ -7,6 +7,8 @@ import { toast } from 'sonner';
 import { CharacterClass, CharacterRole } from '../types';
 import { Search } from 'lucide-react';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
+import axios from 'axios';
+import { useAuth } from '../contexts/AuthContext';
 
 // Form validation schema
 const applicationSchema = z.object({
@@ -30,6 +32,7 @@ const ApplicationPage = () => {
   const [isSearchingCharacter, setIsSearchingCharacter] = useState(false);
   const [characterFound, setCharacterFound] = useState(false);
   const navigate = useNavigate();
+  const { token } = useAuth();
   
   const { 
     register, 
@@ -122,13 +125,9 @@ const ApplicationPage = () => {
   // Form submission handler
   const onSubmit = async (data: ApplicationFormValues) => {
     try {
-      // This would be an API call in production
-      console.log('Application data:', data);
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // Success
+      await axios.post('/api/applications', data, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       toast.success('Application submitted successfully!');
       navigate('/success');
     } catch (error) {

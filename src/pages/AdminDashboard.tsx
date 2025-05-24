@@ -1,27 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { toast } from 'sonner';
 import ApplicantList from '../components/admin/ApplicantList';
 import ApplicantDetails from '../components/admin/ApplicantDetails';
 import DashboardStats from '../components/admin/DashboardStats';
 import { Applicant } from '../types';
-import { mockApplicants } from '../data/mockData';
+import axios from 'axios';
 
 const AdminDashboard = () => {
   const [applicants, setApplicants] = useState<Applicant[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
+  const { user, token } = useAuth();
 
   useEffect(() => {
     const fetchApplicants = async () => {
       setIsLoading(true);
       try {
-        // This would be an API call in production
-        // Simulating API delay
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        setApplicants(mockApplicants);
+        const res = await axios.get('/api/applications', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setApplicants(res.data);
       } catch (error) {
         console.error('Error fetching applicants:', error);
         toast.error('Failed to load applicant data');
@@ -35,13 +34,10 @@ const AdminDashboard = () => {
 
   const updateApplicantStatus = async (id: string, status: string, notes?: string) => {
     try {
-      // This would be an API call in production
-      setApplicants(applicants.map(app => 
-        app.id === id 
-          ? { ...app, status: status as any, officerNotes: notes || app.officerNotes } 
-          : app
-      ));
-      
+      const res = await axios.put(`/api/applications/${id}/status`, { status, officerNotes: notes }, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      setApplicants(applicants.map(app => app.id === id ? res.data : app));
       toast.success(`Applicant status updated to ${status}`);
       return true;
     } catch (error) {
