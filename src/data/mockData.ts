@@ -44,8 +44,8 @@ export const mockApplicants: Applicant[] = [
     desiredRole: 'Ranged DPS',
     ilvl: 410,
     raidProgress: [currentRaidTier],
-    progressPercent: 60,
-    score: calculateScore(410, 60),
+    progressPercent: calculateProgress([currentRaidTier]),
+    score: calculateScore(410, calculateProgress([currentRaidTier])),
     status: 'New',
     notes: 'I am looking for a consistent raiding guild with a focus on progression.',
     createdAt: '2023-05-15T14:30:00Z',
@@ -67,8 +67,24 @@ export const mockApplicants: Applicant[] = [
         killed: idx < 5 // Only first 5 bosses killed
       }))
     }],
-    progressPercent: 50,
-    score: calculateScore(405, 50),
+    progressPercent: calculateProgress([
+      {
+        ...currentRaidTier,
+        bosses: currentRaidTier.bosses.map((boss, idx) => ({
+          ...boss,
+          killed: idx < 5
+        }))
+      }
+    ]),
+    score: calculateScore(405, calculateProgress([
+      {
+        ...currentRaidTier,
+        bosses: currentRaidTier.bosses.map((boss, idx) => ({
+          ...boss,
+          killed: idx < 5
+        }))
+      }
+    ])),
     status: 'Contacted',
     notes: 'Experienced healer with 10+ years of WoW raiding experience.',
     createdAt: '2023-05-14T10:15:00Z',
@@ -91,8 +107,24 @@ export const mockApplicants: Applicant[] = [
         killed: idx < 8 // First 8 bosses killed
       }))
     }],
-    progressPercent: 80,
-    score: calculateScore(415, 80),
+    progressPercent: calculateProgress([
+      {
+        ...currentRaidTier,
+        bosses: currentRaidTier.bosses.map((boss, idx) => ({
+          ...boss,
+          killed: idx < 8
+        }))
+      }
+    ]),
+    score: calculateScore(415, calculateProgress([
+      {
+        ...currentRaidTier,
+        bosses: currentRaidTier.bosses.map((boss, idx) => ({
+          ...boss,
+          killed: idx < 8
+        }))
+      }
+    ])),
     status: 'Trial',
     notes: 'Main tank for my previous guild which disbanded. Looking for a new home.',
     createdAt: '2023-05-12T18:45:00Z',
@@ -115,8 +147,24 @@ export const mockApplicants: Applicant[] = [
         killed: true // All bosses killed
       }))
     }],
-    progressPercent: 100,
-    score: calculateScore(420, 100),
+    progressPercent: calculateProgress([
+      {
+        ...currentRaidTier,
+        bosses: currentRaidTier.bosses.map((boss) => ({
+          ...boss,
+          killed: true
+        }))
+      }
+    ]),
+    score: calculateScore(420, calculateProgress([
+      {
+        ...currentRaidTier,
+        bosses: currentRaidTier.bosses.map((boss) => ({
+          ...boss,
+          killed: true
+        }))
+      }
+    ])),
     status: 'Accepted',
     notes: 'Looking for a new guild after my previous one stopped raiding.',
     createdAt: '2023-05-10T21:20:00Z',
@@ -139,8 +187,24 @@ export const mockApplicants: Applicant[] = [
         killed: idx < 3 // Only first 3 bosses killed
       }))
     }],
-    progressPercent: 30,
-    score: calculateScore(395, 30),
+    progressPercent: calculateProgress([
+      {
+        ...currentRaidTier,
+        bosses: currentRaidTier.bosses.map((boss, idx) => ({
+          ...boss,
+          killed: idx < 3
+        }))
+      }
+    ]),
+    score: calculateScore(395, calculateProgress([
+      {
+        ...currentRaidTier,
+        bosses: currentRaidTier.bosses.map((boss, idx) => ({
+          ...boss,
+          killed: idx < 3
+        }))
+      }
+    ])),
     status: 'Rejected',
     notes: 'New to healing but learning fast. Looking for a patient guild.',
     createdAt: '2023-05-09T08:30:00Z',
@@ -163,8 +227,24 @@ export const mockApplicants: Applicant[] = [
         killed: idx < 7 // First 7 bosses killed
       }))
     }],
-    progressPercent: 70,
-    score: calculateScore(412, 70),
+    progressPercent: calculateProgress([
+      {
+        ...currentRaidTier,
+        bosses: currentRaidTier.bosses.map((boss, idx) => ({
+          ...boss,
+          killed: idx < 7
+        }))
+      }
+    ]),
+    score: calculateScore(412, calculateProgress([
+      {
+        ...currentRaidTier,
+        bosses: currentRaidTier.bosses.map((boss, idx) => ({
+          ...boss,
+          killed: idx < 7
+        }))
+      }
+    ])),
     status: 'New',
     notes: 'Parsing 95+ on all fights. Looking for a guild that raids on my schedule.',
     createdAt: '2023-05-18T15:40:00Z',

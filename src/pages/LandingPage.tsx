@@ -61,7 +61,7 @@ const LandingPage = () => {
           <div 
             className="w-full h-full bg-no-repeat bg-cover bg-center"
             style={{
-              backgroundImage: "url('https://images.pexels.com/photos/6492403/pexels-photo-6492403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+              backgroundImage: "url('https://images5.alphacoders.com/382/382418.jpg')",
               backgroundPosition: 'center',
               backgroundSize: 'cover',
             }}
