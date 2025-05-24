@@ -2,10 +2,9 @@ import React from 'react';
 
 const RaidSchedule = () => {
   const raidDays = [
-    { day: 'Monday', time: '8:00 PM - 11:00 PM', type: 'Main Raid', note: 'Progression' },
-    { day: 'Wednesday', time: '8:00 PM - 11:00 PM', type: 'Main Raid', note: 'Progression' },
-    { day: 'Thursday', time: '8:00 PM - 11:00 PM', type: 'Main Raid', note: 'Progression' },
-    { day: 'Sunday', time: '7:00 PM - 10:00 PM', type: 'Optional Farm Run', note: 'Alt-friendly' }
+    { day: 'Wednesday', time: '7:30 PM - 10:30 PM', type: 'Main Raid', note: 'Progression' },
+    { day: 'Sunday', time: '7:30 PM - 10:30 PM', type: 'Main Raid', note: 'Progression' },
+    { day: 'Sunday', time: '7:30 PM - 10:30 PM', type: 'Alt Raid', note: 'Backup raid if full clear' }
   ];
 
   return (

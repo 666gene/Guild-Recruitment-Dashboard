@@ -4,7 +4,7 @@ import App from './App.tsx';
 import './index.css';
 
 // Change the title
-document.title = "Lowcalibre Guild Recruitment";
+document.title = "Low Calibre Recruitment";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

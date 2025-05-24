@@ -36,7 +36,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-3">
               <Shield className="h-8 w-8 text-primary" />
-              <span className="font-display text-xl sm:text-2xl text-primary">Lowcalibre</span>
+              <span className="font-display text-xl sm:text-2xl text-primary">Low Calibre</span>
             </Link>
           </div>
           

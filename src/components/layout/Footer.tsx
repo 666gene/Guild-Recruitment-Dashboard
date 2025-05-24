@@ -10,11 +10,11 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="flex items-center mb-4 md:mb-0">
             <Shield className="h-6 w-6 text-primary mr-2" />
-            <span className="font-display text-xl text-primary">Lowcalibre</span>
+            <span className="font-display text-xl text-primary">Low Calibre</span>
           </div>
           <div className="flex space-x-6">
             <a 
-              href="https://discord.gg" 
+              href="https://discord.gg/nH2pbeY7" 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-primary transition-colors"
@@ -38,7 +38,7 @@ const Footer = () => {
               Raider.IO
             </a>
             <a 
-              href="https://warcraftlogs.com" 
+              href="https://classic.warcraftlogs.com/guild/id/669447" 
               target="_blank"
               rel="noopener noreferrer" 
               className="text-gray-400 hover:text-primary transition-colors"
@@ -49,7 +49,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-primary/10 pt-6">
           <p className="text-center text-sm text-gray-500">
-            &copy; {currentYear} Lowcalibre Guild. All rights reserved.
+            &copy; {currentYear} Low Calibre. All rights reserved.
           </p>
           <p className="text-center text-xs text-gray-500 mt-2">
             World of Warcraft and related content are trademarks or registered trademarks of Blizzard Entertainment, Inc.

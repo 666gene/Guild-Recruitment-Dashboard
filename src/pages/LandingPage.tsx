@@ -74,7 +74,7 @@ const LandingPage = () => {
             <Shield size={64} className="text-primary" />
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-display text-primary mb-4">
-            Lowcalibre Guild
+            Low Calibre
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl mb-8 text-gray-200 max-w-3xl mx-auto">
             Join one of the top raiding guilds on the server
@@ -113,7 +113,7 @@ const LandingPage = () => {
       <section id="about" className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-display text-primary mb-12 text-center">
-            About Our Guild
+            About Us
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -144,14 +144,14 @@ const LandingPage = () => {
           
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-center text-gray-300 mb-6">
-              Lowcalibre is a semi-hardcore raiding guild focused on PvE content in World of Warcraft Classic. 
+              Low Calibre is a semi-hardcore raiding guild focused on PvE content in World of Warcraft Classic. 
               We value skill, dedication, and a positive attitude. Our community consists of experienced players 
               who are passionate about the game and committed to achieving server-first kills while maintaining 
               a healthy gaming environment.
             </p>
             <p className="text-lg text-center text-gray-300">
               Whether you're a seasoned raider or a dedicated player looking to improve, 
-              if you're ready to contribute to a team-focused guild with clear goals and expectations, 
+              if you're ready to contribute to a team-focused community with clear goals and expectations, 
               we want to hear from you.
             </p>
           </div>
@@ -229,7 +229,7 @@ const LandingPage = () => {
             </h2>
             <p className="text-xl text-gray-300 mb-8">
               We're looking for dedicated players who want to be part of a community that values skill,
-              teamwork, and progression. Apply now and start your journey with Lowcalibre.
+              teamwork, and progression. Apply now and start your journey with Low Calibre.
             </p>
             <Link to="/apply" className="btn btn-primary text-lg py-3 px-10">
               Apply Now
