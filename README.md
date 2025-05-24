@@ -1,6 +1,6 @@
 # Lowcalibre Guild Recruitment Portal
 
-This project is a prototype recruitment dashboard for the Lowcalibre guild. It is built with **React** and **TypeScript** using [Vite](https://vitejs.dev/) and styled with **Tailwind CSS**.
+This project is a recruitment dashboard for the Lowcalibre guild. The frontend is built with **React** and **TypeScript** using [Vite](https://vitejs.dev/). An **Express** API backed by **SQLite** handles authentication and stores applications.
 
 ## Getting Started
 
@@ -16,16 +16,23 @@ npm install
 npm run dev
 ```
 
+3. In a separate terminal, start the API server:
+
+```bash
+npm run server
+```
+
 The app will be available at `http://localhost:5173` by default.
 
 ## Available Scripts
 
-- `npm run dev` &ndash; start the Vite development server
-- `npm run build` &ndash; create a production build in the `dist` folder
-- `npm run preview` &ndash; preview the production build locally
-- `npm test` &ndash; run unit tests with [Vitest](https://vitest.dev/)
-- `npm run lint` &ndash; lint the codebase using ESLint
+- `npm run dev` – start the Vite development server
+- `npm run server` – start the Express API server
+- `npm run build` – create a production build in the `dist` folder
+- `npm run preview` – preview the production build locally
+- `npm test` – run unit tests with [Vitest](https://vitest.dev/)
+- `npm run lint` – lint the codebase using ESLint
 
 ## Notes
 
-The project currently uses mocked data and authentication for demonstration purposes. In a real deployment these would be replaced with proper API calls and secure authentication.
+The API server stores data in a local SQLite database located at `guild.db`. In production you may wish to migrate this to PostgreSQL or another managed service.

@@ -6,6 +6,8 @@ import { Toaster } from 'sonner';
 import LandingPage from './pages/LandingPage';
 import ApplicationPage from './pages/ApplicationPage';
 import SuccessPage from './pages/SuccessPage';
+import RegisterPage from './pages/RegisterPage';
+import CandidateLogin from './pages/CandidateLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminLogin from './pages/AdminLogin';
 import NotFoundPage from './pages/NotFoundPage';
@@ -25,16 +27,18 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/apply" element={<ApplicationPage />} />
+            <Route path="/apply" element={<ProtectedRoute redirect='/login'><ApplicationPage /></ProtectedRoute>} />
+            <Route path="/login" element={<CandidateLogin />} />
+            <Route path="/register" element={<RegisterPage />} />
             <Route path="/success" element={<SuccessPage />} />
             <Route path="/admin/login" element={<AdminLogin />} />
-            <Route 
-              path="/admin/*" 
+            <Route
+              path="/admin/*"
               element={
-                <ProtectedRoute>
+                <ProtectedRoute redirect="/admin/login" roles={['officer']}>
                   <AdminDashboard />
                 </ProtectedRoute>
-              } 
+              }
             />
             <Route path="*" element={<NotFoundPage />} />
           </Route>

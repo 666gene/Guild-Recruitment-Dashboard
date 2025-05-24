@@ -81,12 +81,11 @@ const Navbar = () => {
                 </button>
               </>
             ) : (
-              <Link 
-                to="/admin/login" 
-                className="btn btn-primary"
-              >
-                Officer Login
-              </Link>
+              <>
+                <Link to="/login" className="btn btn-primary">Login</Link>
+                <Link to="/register" className="btn btn-secondary">Register</Link>
+                <Link to="/admin/login" className="btn btn-outline">Officer Login</Link>
+              </>
             )}
           </div>
           
@@ -147,13 +146,29 @@ const Navbar = () => {
                 </button>
               </>
             ) : (
-              <Link
-                to="/admin/login"
-                onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-center font-medium bg-primary text-background-light"
-              >
-                Officer Login
-              </Link>
+              <>
+                <Link
+                  to="/login"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-3 py-2 rounded-md font-medium text-center text-gray-300 hover:text-primary"
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/register"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-3 py-2 rounded-md font-medium text-center text-gray-300 hover:text-primary"
+                >
+                  Register
+                </Link>
+                <Link
+                  to="/admin/login"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-3 py-2 rounded-md text-center font-medium bg-primary text-background-light"
+                >
+                  Officer Login
+                </Link>
+              </>
             )}
           </div>
         </div>
