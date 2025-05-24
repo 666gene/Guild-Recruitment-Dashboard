@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield } from 'lucide-react';
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,7 +9,11 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8">
           <div className="flex items-center mb-4 md:mb-0">
-            <Shield className="h-6 w-6 text-primary mr-2" />
+            <img 
+              src="/src/assets/images/guild-logo.png" 
+              alt="Low Calibre Guild Logo"
+              className="h-6 w-6 animate-float mr-2"
+            />
             <span className="font-display text-xl text-primary">Low Calibre</span>
           </div>
           <div className="flex space-x-6">
@@ -30,12 +34,12 @@ const Footer = () => {
               World of Warcraft
             </a>
             <a 
-              href="https://raider.io" 
+              href="https://youtu.be/bvt_7D8aQ6Y" 
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-primary transition-colors"
             >
-              Raider.IO
+              Peak Male Performance
             </a>
             <a 
               href="https://classic.warcraftlogs.com/guild/id/669447" 

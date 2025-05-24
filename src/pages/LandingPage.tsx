@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Shield, CalendarDays, Users, Trophy } from 'lucide-react';
+import { CalendarDays, Users, Trophy } from 'lucide-react';
 import { Vacancy } from '../types';
 import VacancyCard from '../components/recruitment/VacancyCard';
 import RaidSchedule from '../components/guild/RaidSchedule';
@@ -20,25 +20,25 @@ const LandingPage = () => {
             role: 'Tank',
             classes: ['Warrior', 'Paladin', 'Druid'],
             priority: 'High',
-            notes: 'Looking for an experienced MT with previous raid leading experience'
+            notes: 'Looking for an experienced Blood DK with a shirt'
           },
           {
             role: 'Healer',
             classes: ['Priest', 'Shaman', 'Paladin'],
             priority: 'Medium',
-            notes: 'Holy Paladin preferred for tank healing'
+            notes: 'OCE 2nd Holy Paladin preferred'
           },
           {
             role: 'Ranged DPS',
             classes: ['Mage', 'Warlock', 'Hunter'],
-            priority: 'High',
-            notes: 'Fire Mage and Affliction Warlock spots open'
+            priority: 'Low',
+            notes: 'Already have Graceful replacement'
           },
           {
             role: 'Melee DPS',
             classes: ['Rogue', 'Death Knight', 'Warrior'],
             priority: 'Low',
-            notes: 'Currently full, but exceptional applicants will be considered'
+            notes: 'Our low calibre rogue is leaving for a guild with higher calibre for MoP'
           }
         ];
         
@@ -70,14 +70,18 @@ const LandingPage = () => {
         </div>
         
         <div className="container mx-auto px-4 z-10 text-center">
-          <div className="flex justify-center mb-4 animate-float">
-            <Shield size={64} className="text-primary" />
+          <div className="flex justify-center mb-4">
+            <img 
+              src="/src/assets/images/guild-logo.png" 
+              alt="Low Calibre Guild Logo"
+              className="h-16 w-16 animate-float"
+            />
           </div>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-display text-primary mb-4">
             Low Calibre
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl mb-8 text-gray-200 max-w-3xl mx-auto">
-            Join one of the top raiding guilds on the server
+            Join one of the lowest calibre guilds on Arugal
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
             <Link to="/apply" className="btn btn-primary text-lg py-3 px-8 animate-glow">
@@ -121,7 +125,7 @@ const LandingPage = () => {
               <Trophy className="text-primary mb-4 h-12 w-12" />
               <h3 className="text-xl font-display mb-2">Achievement Focused</h3>
               <p className="text-gray-400">
-                Consistently clearing current content with a focus on progression and improvement.
+                Consistently fucking up, making us very knowlegable players.
               </p>
             </div>
             
@@ -129,30 +133,30 @@ const LandingPage = () => {
               <CalendarDays className="text-primary mb-4 h-12 w-12" />
               <h3 className="text-xl font-display mb-2">Dedicated Schedule</h3>
               <p className="text-gray-400">
-                Organized raid times with a balance between progression and real-life commitments.
+                Dedicated to being late every week.
               </p>
             </div>
             
             <div className="card text-center flex flex-col items-center transition-transform hover:scale-105">
-              <Users className="text-primary mb-4 h-12 w-12" />
+              <img 
+                src="/src/assets/images/guild-logo.png" 
+                alt="Low Calibre Guild Logo"
+                className="h-12 w-12 animate-float"
+              />
               <h3 className="text-xl font-display mb-2">Community First</h3>
               <p className="text-gray-400">
-                A positive and supportive environment where players can grow and enjoy content together.
+                A positive and supportive environment where players can talk shit all night together.
               </p>
             </div>
           </div>
           
           <div className="max-w-3xl mx-auto">
             <p className="text-lg text-center text-gray-300 mb-6">
-              Low Calibre is a semi-hardcore raiding guild focused on PvE content in World of Warcraft Classic. 
-              We value skill, dedication, and a positive attitude. Our community consists of experienced players 
-              who are passionate about the game and committed to achieving server-first kills while maintaining 
-              a healthy gaming environment.
+              Low Calibre is a semi-hardcore raiding guild focused on memes and Trump tariffs. 
+              We value skill, dedication, and a positive attitude. LOL
             </p>
             <p className="text-lg text-center text-gray-300">
-              Whether you're a seasoned raider or a dedicated player looking to improve, 
-              if you're ready to contribute to a team-focused community with clear goals and expectations, 
-              we want to hear from you.
+              Whether you're a seasoned raider or an absolute gigachad we want to hear from you.
             </p>
           </div>
         </div>
@@ -169,10 +173,10 @@ const LandingPage = () => {
           
           <div className="mt-12 text-center">
             <p className="text-gray-400 mb-4">
-              We expect 90%+ attendance for all raiders. Time zone is server time (EST).
+              We expect 90%+ attendance except for the raiders who are too lazy to show up (like Breg). Time zone is server time (EST).
             </p>
             <p className="text-gray-300">
-              Be prepared with consumables, knowledge of encounters, and properly gemmed/enchanted gear.
+              Be prepared with consumables, knowledge of encounters, and properly gemmed/enchanted gear. Looking at you Twoshadow
             </p>
           </div>
         </div>
@@ -199,7 +203,7 @@ const LandingPage = () => {
               
               <div className="text-center mt-12">
                 <p className="text-gray-300 mb-8">
-                  Don't see your class or spec listed? We always consider exceptional players regardless of our current needs.
+                  Don't see your class or spec listed? Too bad i guess?
                 </p>
                 <Link to="/apply" className="btn btn-primary">
                   Submit Your Application
@@ -228,8 +232,7 @@ const LandingPage = () => {
               Ready to Join Our Ranks?
             </h2>
             <p className="text-xl text-gray-300 mb-8">
-              We're looking for dedicated players who want to be part of a community that values skill,
-              teamwork, and progression. Apply now and start your journey with Low Calibre.
+              We're looking for dedicated players who want to be part in Bregs mum. Apply now and start your journey with Low Calibre.
             </p>
             <Link to="/apply" className="btn btn-primary text-lg py-3 px-10">
               Apply Now

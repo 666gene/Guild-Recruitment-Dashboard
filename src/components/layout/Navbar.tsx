@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import { Shield, Menu, X, LogOut } from 'lucide-react';
+import { Menu, X, LogOut } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,7 +35,11 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex items-center space-x-3">
-              <Shield className="h-8 w-8 text-primary" />
+              <img 
+                src="/src/assets/images/guild-logo.png" 
+                alt="Low Calibre Guild Logo"
+                className="h-8 w-8 animate-float"
+              />
               <span className="font-display text-xl sm:text-2xl text-primary">Low Calibre</span>
             </Link>
           </div>
